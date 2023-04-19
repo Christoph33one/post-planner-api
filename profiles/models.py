@@ -3,6 +3,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 
 
+# profile
 class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
@@ -23,6 +24,7 @@ class Profile(models.Model):
         ('PHOTOGRAPHY', 'Photography'),
     )
     activities = models.CharField(max_length=20, choices=ACTIVITY_CHOICES, blank=True)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']
