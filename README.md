@@ -18,7 +18,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 # List of contents
 
 <li><a herf="#profiles">Profiles</a></li>
-<li><a herf="#posts">Posts</a></li>
+<li><a herf="#trave-plan">Travel plan</a></li>
 <li><a herf="#comments">Comments</a></li>
 <li><a herf="#search-filter">Search & filter</a></li>
 <li><a herf="#"></a></li>
@@ -30,7 +30,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 # Profiles
 
-# Posts
+# Travel plan
 
 # Comments
 
