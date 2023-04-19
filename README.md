@@ -43,7 +43,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 - As a developer using the Post Planner API, I want to retrieve data from a user's profile so that I can display it to the user. This includes information such as their profile image, favorite activities, when their profile was created, and a section where they can write a short description about themselves. By accessing this data through the API, I can present a more personalized experience to the user 
 
-- As a developer using the post planner API, I want to approve a users profile before viewing as to protect all user from sensitive user data exposure. 
+- As a developer using the post planner API, I want to view and approve a users profile in an admin panel before viewing as to protect all user from sensitive user data exposure. 
 
 - As a developer using the post planner API, I want to create two API endpoints for modifying user profile data, one for editing user profiles and another for deleting user profiles. This will provide users with the ability to update or remove their profile information through the API, improving the user experience and making the API more user-friendly.
 
