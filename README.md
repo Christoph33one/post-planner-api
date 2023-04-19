@@ -47,13 +47,13 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 - As a developer using the post planner API, I want to create two API endpoints for modifying user profile data, one for editing user profiles and another for deleting user profiles. This will provide users with the ability to update or remove their profile information through the API, improving the user experience and making the API more user-friendly.
 
-Posts
-- As a developer using the post planner API, I want an endpoint to get all posts so that I do not have to manually query the database and then add them manually.
+Travel plan
+- As a developer using the post planner API, I want an endpoint to get all travel plans so that I do not have to manually query the database and then add them manually.
 
-- As a developer using the post planner API, I want an endpoint to save a Post object to the database so that users and share their content.
+- As a developer using the post planner API, I want an endpoint to save a travel plan object to the database so that users and share their content.
 
-- As a developer using the post planner API, I want an endpoint so users can manually edit their post by updating their images or content, and that the developer dose not need to update the database.
+- As a developer using the post planner API, I want an endpoint so users can manually edit their travel plan by updating their images or content or loacations, and that the developer dose not need to update the database.
 
-- As a developer using the post planner API, I want an endpoint so users can delete any post manually, so that a developer does not need to update the database.
+- As a developer using the post planner API, I want an endpoint so users can delete any travel plans manually, so that a developer does not need to update the database.
 
-- As a developer using the post planner API, I want to restrict users from editing or deleting posts that they did not create, ensuring that only the original creators have control over their content.
+- As a developer using the post planner API, I want to restrict users from editing or deleting a travel plan that they did not create, ensuring that only the original creators have control over their content.
