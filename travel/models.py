@@ -31,6 +31,10 @@ class TravelPlan(models.Model):
     )
     approved = models.BooleanField(default=False)
 
+    image_filter = models.CharField(
+        max_length=40, choices=image_filter_choices, default='normal'
+    )
+
     class Meta:
         ordering = ['-created_at']
 
