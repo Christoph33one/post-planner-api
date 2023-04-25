@@ -16,6 +16,7 @@ The API provides essential resources for managing user accounts, creating and co
 # Project structure
 The project's general structure draws inspiration from the DRF-API walkthrough, which adheres to the best practices for implementing APIs in the industry. As a result, the serializer, model, and URL files are structured in a way that reflects the conventional approach to implementing APIs using the Django REST framework.
 
+
 # List of contents
 
 <li><a herf="#profiles">Profiles</a></li>
@@ -26,6 +27,9 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 <li><a herf="#"></a></li>
 
 
+# Data models
+
+The process of designing the database was closely aligned with the development of the API endpoints.  By using this approach, I was able to ensure that each data model was well-suited to support the functionality of the API and the needs of the end-users.
 
 
 # Profiles
