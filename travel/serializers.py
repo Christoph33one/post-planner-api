@@ -32,6 +32,6 @@ class TravelPlanSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'title',
-            'description', 'location', 'activties',
+            'description', 'location', 'activities',
             'image', 'image_filter'
         ]
