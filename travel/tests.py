@@ -24,7 +24,7 @@ class TravelPlanPostViewList(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_user_not_logged_in_cant_create_post(self):
-        response = self.client.post('/travelplanposts/', {'title': 'a title', 'description': 'test', 'location': 'test location'} )
+        response = self.client.post('/travelplanposts/', {'title': 'a title', 'description': 'test', 'location': 'test location'})
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
@@ -49,7 +49,7 @@ class TravelPlanPostDetailViewTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_user_can_update_own_post(self):
-        self.client.login(username='adam', password='pass')
+        self.client.login(username='chris', password='pass')
         response = self.client.put('/posts/1/', {'title': 'a new title', 'description': 'testing', 'location': 'testing location'})
         post = TravelPlan.objects.filter(pk=1).first()
         self.assertEqual(post.title, 'a new title')

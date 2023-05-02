@@ -18,13 +18,15 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 
 # List of contents
-
+<ul>
 <li><a herf="#profiles">Profiles</a></li>
 <li><a herf="#travel-plan">Travel plan</a></li>
-<li><a herf="#search-filter">Search & filter</a></li>
+<li><a herf="#search-filter">Search & filter</a><li>
+<li><a herf="#user-stories">User stories</a></li>
+<li><a herf="testing">Testing</a></li>
 <li><a herf="#"></a></li>
 <li><a herf="#"></a></li>
-<li><a herf="#"></a></li>
+</ul>
 
 
 # Data models
@@ -72,3 +74,25 @@ Travel plan
 - As a developer using the post planner API, I want to restrict users from editing or deleting a travel plan that they did not create, ensuring that only the original creators have control over their content.
 
 
+# Testing
+
+Travel plan list
+
+Seven tests were conducted for the travel post using Django's API test case. These included verifying that:
+
+- The user can view a list of posts using the URL /travelplanposts/, which should return a status.HTTP_200_OK error.
+
+- A logged-in user can create a post with the correct user ID. Additionally, three fields from the travelplan model were tested within the response, as these fields have an attribute of blank set to false. This return a status.HTTP_201_CREATED
+
+- An unauthorized user attempting to create a post will receive a status.HTTP_403_FORBIDDEN error, indicating that they do not have the necessary permissions. This is also tested as part of the overall verification process.
+
+
+Travel plan post detail
+
+- Tested whether a post can be retrieved using the URL /posts/1/ and the correct user ID. Additionally, verified that the response returns a status.HTTP_200_OK error, indicating that the operation was successful.
+
+- Tested the scenario where an incorrect URL is used to retrieve a post (e.g., /posts/999). As this post count does not exist, the response should return a status.HTTP_404_NOT_FOUND error, indicating that the requested resource could not be found.
+
+- As part of our testing process, I verified that a user is able to update their own posts. To do so, I used the user's ID and a filter method to identify the correct post ID, and updated the post with a new title. I also verified that the response returns a status.HTTP_200_OK error, indicating that the update was successful. This helps ensure that users are able to modify their own posts as needed
+
+- As part of the testing process, I verified that a user is not able to update another user's post. To do so, I added a logged-in user ID to the response of a different post ID, and verified that the expected result is a status.HTTP_403_FORBIDDEN error. This helps ensure that authenticated users cannot edit posts that do not belong to them.
