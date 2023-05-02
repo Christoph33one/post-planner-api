@@ -35,12 +35,16 @@ The process of designing the database was closely aligned with the development o
 # Profiles
 The Profile model allows users to create a personalized profile that is unique to them, using a one-to-one relationship. To create a profile, users must first register and then add the personal details of their choice. The Profile model is only visible to authenticated users through an admin panel. A Boolean field is included with a default value of False to ensure that a user's profile must be approved by the site administrator before it can be viewed. This measure is in place to ensure user and online safety by preventing the creation of malicious profiles.
 
+To further enhance the user experience, an update function has been implemented that lets the users effortlessly update their profile image or content.
+
 # Travel plan
 The Travel Plan model offers authenticated users the ability to create multiple posts related to their profile, utilizing a one-to-many relationship. This model inherits the Activities list from the Profile model, allowing users to add relevant activities to their travel plans. Additionally, an image field is included, with image size, width, and height regulations in place.
 
 With the Travel Plan model, users can add a title, write a description, specify a location, and upload an image to document their travel experiences for a specific location. Users also have the option to update or delete their posts as needed.
 
 To ensure online safety, users cannot access and edit or delete another individual's post. All posts are subject to regulation through an admin panel and must be approved before the user or other users can view them.
+
+To further enhance the user experience with a travel post, an update and delete function has been implemented that lets the users effortlessly update a post or to delete a post when needed.
 
 
 # Search & filter 
