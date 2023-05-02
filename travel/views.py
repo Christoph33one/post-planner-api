@@ -46,6 +46,7 @@ class TravelPlanPostDetail(APIView):
         except TravelPlan.DoesNotExist:
             raise Http404()
 
+    # Get users post by user id
     def get(self, request, pk):
         post = self.get_object(pk)
         serializer = TravelPlanSerializer(
@@ -53,6 +54,7 @@ class TravelPlanPostDetail(APIView):
         )
         return Response(serializer.data)
 
+    # edit users post by user id
     def put(self, request, pk):
         post = self.get_object(pk)
         serializer = TravelPlanSerializer(
@@ -65,6 +67,7 @@ class TravelPlanPostDetail(APIView):
             serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
 
+    # Delete users post by user id
     def delete(self, request, pk):
         post = self.get_object(pk)
         post.delete()
