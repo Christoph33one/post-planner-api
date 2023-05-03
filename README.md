@@ -24,7 +24,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 <li><a herf="#search-filter">Search & filter</a><li>
 <li><a herf="#user-stories">User stories</a></li>
 <li><a herf="testing">Testing</a></li>
-<li><a herf="#"></a></li>
+<li><a herf="#deployment">Deployment</a></li>
 <li><a herf="#"></a></li>
 </ul>
 
@@ -97,4 +97,73 @@ Travel plan post detail
 
 - As part of the testing process, I verified that a user is not able to update another user's post. To do so, I added a logged-in user ID to the response of a different post ID, and verified that the expected result is a status.HTTP_403_FORBIDDEN error. This helps ensure that authenticated users cannot edit posts that do not belong to them.
 
-NNED TO A THE COVERAGE TEST REPORT IMAGE HERE!!!!!!!!!!!!
+NEED TO A THE COVERAGE TEST REPORT IMAGE HERE!!!!!!!!!!!!
+
+# Deployment
+
+Deployment
+To deploy Django application follow link instructions
+https://github.com/Code-Institute-Org/python-essentials-template
+Creating an app in Django - please follow the link below with instructions to create an app
+
+https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf
+Repository using GitPod
+Navigate to the repository page on GitHub
+Click the "GitPod" button in the top right of the repository.
+You will now be taken to an open workspace.
+Now you can create your files within your work space. Remeber to add (.html) for example when creating an html file, as this lets GitPod know what script and code you will be using.
+For documentation and saving your work, which should be done on a regular basis. Use the command:
+git add .
+git commit -m"YOUR MESSAGE HERE! PLEASE KEEP IT SHORT BUT BRIEF!"
+git push ( saves your work with the commit message. Your work will now be pushed to your GitHub repository )
+Setting up Django Project and Deploying to Heroku Please follow the cheat sheet links below and in the order provided.
+
+https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit#
+
+Deployment: Heroku app
+
+Click "create a new app" in top right corner
+Give your app a name and select the region closest to you. When you’re done, click “Create app” to confirm.
+Create a database
+Log in to ElephantSQL.com to access your dashboard
+Click “Create New Instance”
+Set up your plan
+
+Give your plan a Name (this is commonly the name of the project)
+Select the Tiny Turtle (Free) plan
+You can leave the Tags field blank
+Select “Select Region”
+Then click “Review”
+Return to the ElephantSQL dashboard and click on the database instance name for this project
+In the URL section, click the copy icon to copy the database URL
+That’s the database created
+Process
+In your project workspace, create a file called env.py. It’s a good idea to check that this file is included in the .gitignore file too. If you are using the Code Institute provided GitHub template, then the env.py file is already in the .gitignore file.
+
+In your env.py file add the following line of code. import os
+
+Next we need to set some environment variables. os.environ["DATABASE_URL"]=""
+
+As this is a Django application it has a SECRET_KEY os.environ["SECRET_KEY"]="my_super^secret@key"
+
+We don't want to share our secrets either, so this documentation shows you a made up key. Just replace my_super^secret@key with your key
+
+### Make sure you save the file.
+
+Modifying settings.py
+Now you have created an env.py file in your file paths add the following: import os import dj_database_url if os.path.isfile('env.py'): import env
+
+A little further down, remove the insecure secret key provided by Django and replace with: SECRET_KEY = os.environ.get('SECRET_KEY')
+
+Now that is taken care of, we need to hook up your database. We are going to use the dj_database_url import Comment out the original DATABASES variable and add the code below, as shown.
+
+DATABASES = { 'default': dj_database_url.parse(os.environ.get("DATABASE_URL")) }
+
+The code that has been commented out connects your Django application to the created db.sqlite3 database within your repo.
+
+With those changes in place, make sure to save your file. Your application will now connect to your remote database hosted on ElephantSQL
+
+Run the command - python manage.py migrate
+
+
+
