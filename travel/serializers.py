@@ -34,5 +34,6 @@ class TravelPlanSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'title',
             'description', 'location', 'activities',
-            'image', 'image_filter', 'comments_count'
+            'image1', 'image2', 'image3', 'image4', 'image5', 'image6',
+            'image_filter', 'comments_count'
         ]

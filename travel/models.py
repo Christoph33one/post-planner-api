@@ -25,11 +25,22 @@ class TravelPlan(models.Model):
     title = models.CharField(max_length=100, blank=False)
     description = models.TextField(max_length=500, blank=False)
     location = models.CharField(max_length=100, blank=False)
-    activities = models.CharField(max_length=80, choices=Profile.ACTIVITY_CHOICES, blank=True)
-    image = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True
-    )
+    activities = models.CharField(
+        max_length=80, choices=Profile.ACTIVITY_CHOICES, blank=True)
     approved = models.BooleanField(default=False)
+
+    image1 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+    image2 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+    image3 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+    image4 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+    image5 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+    image6 = models.ImageField(
+        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
 
     image_filter = models.CharField(
         max_length=40, choices=image_filter_choices, default='normal'

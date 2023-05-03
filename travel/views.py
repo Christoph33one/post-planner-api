@@ -21,7 +21,12 @@ class TravelPlanPostList(generics.ListCreateAPIView):
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+    search_fields = [
+        'location',
+
     ]
     ordering_fields = [
         'comments_count',
