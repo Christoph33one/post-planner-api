@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from planner_api.permissions import IsOwnerOrReadOnly
 from django.http import Http404
 from rest_framework import status, permissions
@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from .models import TravelPlan
 from .serializers import TravelPlanSerializer
 from planner_api.permissions import IsOwnerOrReadOnly
+from django.db.models import Count
 
 
 class TravelPlanPostList(generics.ListCreateAPIView):
@@ -16,7 +17,15 @@ class TravelPlanPostList(generics.ListCreateAPIView):
     """
     serializer_class = TravelPlanSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = TravelPlan.objects.all()
+    queryset = TravelPlan.objects.annotate(
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'comments_count',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.user)
@@ -48,52 +57,54 @@ class TravelPlanPostList(generics.ListCreateAPIView):
 #         )
 
 
-# class TravelPlanPostDetail(generics.RetrieveUpdateDestroyAPIView):
-#     """
-#     Retrieve a post and edit or delete it if you own it.
-#     """
-#     serializer_class = TravelPlanSerializer
-#     permission_classes = [IsOwnerOrReadOnly]
-#     queryset = TravelPlan.objects.all()
-
-
-class TravelPlanPostDetail(APIView):
-    permission_classes = [IsOwnerOrReadOnly]
+class TravelPlanPostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve a post and edit or delete it if you own it.
+    """
     serializer_class = TravelPlanSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = TravelPlan.objects.annotate(
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
 
-    def get_object(self, pk):
-        try:
-            post = TravelPlan.objects.get(pk=pk)
-            self.check_object_permissions(self.request, post)
-            return post
-        except TravelPlan.DoesNotExist:
-            raise Http404()
 
-    # Get users post by user id
-    def get(self, request, pk):
-        post = self.get_object(pk)
-        serializer = TravelPlanSerializer(
-            post, context={'request': request}
-        )
-        return Response(serializer.data)
+# class TravelPlanPostDetail(APIView):
+#     permission_classes = [IsOwnerOrReadOnly]
+#     serializer_class = TravelPlanSerializer
 
-    # edit users post by user id
-    def put(self, request, pk):
-        post = self.get_object(pk)
-        serializer = TravelPlanSerializer(
-            post, data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+#     def get_object(self, pk):
+#         try:
+#             post = TravelPlan.objects.get(pk=pk)
+#             self.check_object_permissions(self.request, post)
+#             return post
+#         except TravelPlan.DoesNotExist:
+#             raise Http404()
 
-    # Delete users post by user id
-    def delete(self, request, pk):
-        post = self.get_object(pk)
-        post.delete()
-        return Response(
-            status=status.HTTP_204_NO_CONTENT
-        )
+#     # Get users post by user id
+#     def get(self, request, pk):
+#         post = self.get_object(pk)
+#         serializer = TravelPlanSerializer(
+#             post, context={'request': request}
+#         )
+#         return Response(serializer.data)
+
+#     # edit users post by user id
+#     def put(self, request, pk):
+#         post = self.get_object(pk)
+#         serializer = TravelPlanSerializer(
+#             post, data=request.data, context={'request': request}
+#         )
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(
+#             serializer.errors, status=status.HTTP_400_BAD_REQUEST
+#         )
+
+#     # Delete users post by user id
+#     def delete(self, request, pk):
+#         post = self.get_object(pk)
+#         post.delete()
+#         return Response(
+#             status=status.HTTP_204_NO_CONTENT
+#         )

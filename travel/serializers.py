@@ -7,6 +7,7 @@ class TravelPlanSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -33,5 +34,5 @@ class TravelPlanSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'title',
             'description', 'location', 'activities',
-            'image', 'image_filter'
+            'image', 'image_filter', 'comments_count'
         ]
