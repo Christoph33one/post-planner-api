@@ -16,8 +16,10 @@ class CommentList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-# Authenticated user to update or delete a comment
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Authenticated user to update or delete a comment
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer
     queryset = Comment.objects.all()

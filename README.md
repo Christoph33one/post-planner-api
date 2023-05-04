@@ -112,7 +112,12 @@ Travel plan post detail
 
 - As part of the testing process, I verified that a user is not able to update another user's post. To do so, I added a logged-in user ID to the response of a different post ID, and verified that the expected result is a status.HTTP_403_FORBIDDEN error. This helps ensure that authenticated users cannot edit posts that do not belong to them.
 
-NEED TO A THE COVERAGE TEST REPORT IMAGE HERE!!!!!!!!!!!!
+---
+
+### Automated tests
+I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
+
+![](assets/coverage%20test%20report%20API.png)
 
 ---
 
