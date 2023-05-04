@@ -24,6 +24,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 # List of contents
 <ul>
+<li><a herf="#data-models">Data models</a></li>
 <li><a herf="#profiles">Profiles</a></li>
 <li><a herf="#travel-plan">Travel plan</a></li>
 <li><a herf="#comments">Comments</a></li>
@@ -38,6 +39,9 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 # Data models
 The process of designing the database was closely aligned with the development of the API endpoints.  By using this approach, I was able to ensure that each data model was well-suited to support the functionality of the API and the needs of the end-users.
+
+### Data base structure
+![](assets/data%20base%20structure.png)
 
 
 # Profiles
