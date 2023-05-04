@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, filters
+from rest_framework.permissions import IsAuthenticated
 from planner_api.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializers import ProfileSerializer
@@ -22,11 +23,11 @@ class ProfileList(generics.ListAPIView):
     ]
 
 
-class ProfileDetail(generics.RetrieveAPIView):
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve or update a profile if you're the owner.
+    Retrieve, update or delete a profile if you're the owner.
     """
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__travelplan', distinct=True),
     ).order_by('-created_at')
