@@ -27,15 +27,11 @@ class TravelPlanPostList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        """
-        To retreieve users post by the users ID
-        """
+        # To retreieve users post by the users ID
         'owner__profile',
     ]
     search_fields = [
-        """
-        To retreieve a travelplan by location
-        """
+        # To retreieve a travelplan by location
         'location',
 
     ]

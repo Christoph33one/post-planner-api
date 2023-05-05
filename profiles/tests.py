@@ -75,7 +75,6 @@ class ProfileDetailViewTests(APITestCase):
         response = self.client.delete('/profiles/1/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
-
     def test_user_cant_delete_other_profiles(self):
         """
         Test inauthented user can not delete any profiles

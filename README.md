@@ -95,20 +95,39 @@ Travel plan
 ---
 
 # Testing
-Travel plan list
 
-Seven tests were conducted for the travel post using Django's API test case. These included verifying that:
+### Automated tests
+I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
 
-- The user can view a list of posts using the URL /travelplanposts/, which should return a status.HTTP_200_OK error.
 
 - A logged-in user can create a post with the correct user ID. Additionally, three fields from the travelplan model were tested within the response, as these fields have an attribute of blank set to false. This return a status.HTTP_201_CREATED
 
 - An unauthorized user attempting to create a post will receive a status.HTTP_403_FORBIDDEN error, indicating that they do not have the necessary permissions. This is also tested as part of the overall verification process.
 
+### Profile
 
-Travel plan post detail
+- Test a profile is created with an authenicated user only and can be viewed withe url endpoint of /profiles/ also status.HTTP_200_OK displayed from the api.
 
-- Tested whether a post can be retrieved using the URL /posts/1/ and the correct user ID. Additionally, verified that the response returns a status.HTTP_200_OK error, indicating that the operation was successful.
+- Test a profile can be retieved using a matching user ID WHY IS THIS TEST PASSING ON A 403    ???????????????????????????????
+
+- Test a unauthorised user can not log into a profile they do not own and return a status HTTP_403_FORBIDDEN displayed from the api.
+
+- Test a authenticated user can log into thier profile and a url endpoint of /profiles/1 to give the users ID. Also a status.HTTP_200_OK displayed from the api.
+
+- Test a logged in user can update their with the url endpoint of /profiles/1/ and the api returns a status.HTTP_200_OK
+
+- Test an unauthorised user can not update a profile they do not own and the api returns a status HTTP_403_FORBIDDEN
+
+- Test a user can delete their profile on the request and the api returns a status.HTTP_204_NO_CONTENT after deletion
+
+- Test an unauthorised user can not delete a profile they do not won and the pai returns a status HTTP_403_FORBIDDEN
+
+
+### Travel plan post detail
+
+- Tested that all traveplans can be viewed as a list in the api /travelplanposts/
+
+- Tested whether a travel plan can be retrieved using the URL /travelplanposts/?owner__profile=3 and the correct user ID. Additionally, verified that the response returns a status.HTTP_200_OK error, indicating that the operation was successful.
 
 - Tested the scenario where an incorrect URL is used to retrieve a post (e.g., /posts/999). As this post count does not exist, the response should return a status.HTTP_404_NOT_FOUND error, indicating that the requested resource could not be found.
 
@@ -116,10 +135,37 @@ Travel plan post detail
 
 - As part of the testing process, I verified that a user is not able to update another user's post. To do so, I added a logged-in user ID to the response of a different post ID, and verified that the expected result is a status.HTTP_403_FORBIDDEN error. This helps ensure that authenticated users cannot edit posts that do not belong to them.
 
+- As part of the testing process, I verified that a user is able to delete their post. To do so I added a filter method to indentify the owner is the onwer of that post with the correct user ID. Once a post had been delete the api is to return a status.HTTP_204_NO_CONTENT. YOU NEED TO WRITE THIS TEST !!!!!!!!! ????????
+
+- As part of the testing process, I wanted a unauthorised user to not be able to delete a post they do not own. To verify the result the api is to return a status.HTTP_403_FORBIDDEN error.  This helps ensure that authenticated users cannot delete posts that do not belong to them. NEED TO WRITE THIS TEST !!!!!!!! ???????????
+
 ---
 
-### Automated tests
-I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
+### Comments test
+
+- Tested the all comments can be viewed in a list within the api and using the correct url endpoint of /travelplanposts/ and that the api returns a status of Http_200_OK.
+
+- To ensure the proper functioning of the filtering method, I tested the endpoint URL "/travelplanposts/?owner__profile=3" to retrieve all the travel plans that correspond to the user ID number.
+
+- As part of the testing process, I wanted to test an logged our user can not adda comment. I tested see the api retunr a status.HTTP_403_FORBIDDEN and that no comments are able to post.
+
+- As part of the testing process, I have tested that a logged in user can add a comment with the url endpoint of /comments/?post=3 and view a comment form and post option within the api. Also forthe api to return a status status.HTTP_201_CREATED to confirm the comment is added.
+
+- Tested to see that a incorrect user ID and a unrelated comment do not match. Also for the api to show a status of status.HTTP_404_NOT_FOUND.
+
+- Tested to see if a comment added with certain user can be retreieved with the users ID and for the pai to return a status of status.HTTP_200_OK.
+
+- As part of the testing process, I wanted to test the a logged in uer can not update their comment if not logged in. The api to return a status of status.HTTP_200_OK.
+
+- As part of the testing process, I wanted to see if a test would not allow for a user to update another owners comment. In this case the api should return a status.HTTP_403_FORBIDDEN.
+
+- As part of the testing process, I aimed to test whether a user can delete their comment. Using the endpoint URL "/comment/1/", I retrieved the user's comment and then issued a DELETE request to the API to check whether the response would return a status of status.HTTP_204_NO_CONTENT.
+
+- As part of the testing process, I sought to verify that an unauthorized user cannot delete a comment they don't own. To do so, I used a different username and a non-matching endpoint URL ("/comment/1/"), retrieved a user's comment, and then issued a DELETE request to the API. This was done to check whether the response would return a status of status.HTTP_403_FORBIDDEN.
+
+
+### Coverage test report
+By installing coverage and running a coverage test, I was able to generate a detailed report of all the code that was tested through the automated testing process. The report is presented in an HTML format that enhances its readability and can be used for documentation purposes.
 
 ![](assets/coverage%20test%20report%20API.png)
 

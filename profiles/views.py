@@ -21,12 +21,10 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'owner__profile'
+        'owner__profile',
     ]
     ordering_fields = [
-        """
-        To calculate the amount the post per user
-        """
+        # To calculate the amount the post per user
         'posts_count',
     ]
 
