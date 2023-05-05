@@ -8,6 +8,7 @@ from .models import TravelPlan
 from .serializers import TravelPlanSerializer
 from planner_api.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class TravelPlanPostList(generics.ListCreateAPIView):
@@ -23,6 +24,10 @@ class TravelPlanPostList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__profile',
     ]
     search_fields = [
         'location',
@@ -33,7 +38,8 @@ class TravelPlanPostList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.user)
+        serializer.save(owner=self.request.user)
+
 
 # # TravelPlanList view
 # class TravelPlanPostList(APIView):
@@ -71,6 +77,10 @@ class TravelPlanPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = TravelPlan.objects.annotate(
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
 
 
 # class TravelPlanPostDetail(APIView):
