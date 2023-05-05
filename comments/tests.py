@@ -30,7 +30,6 @@ class CommentListViewsTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         count = Comment.objects.count()
         self.assertEqual(count, 0)
-        # passed
 
     def test_logged_in_user_can_add_comment(self):
         """
@@ -45,7 +44,6 @@ class CommentListViewsTest(APITestCase):
             }
         )
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        # passed
 
 
 class CommentDetailListViewTest(APITestCase):
@@ -67,7 +65,6 @@ class CommentDetailListViewTest(APITestCase):
         """
         response = self.client.get('/comments/999/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        # passes
 
     def test_can_retrieve_comment_with_vailid_id(self):
         """
@@ -75,7 +72,6 @@ class CommentDetailListViewTest(APITestCase):
         """
         response = self.client.get('/comments/2/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # passes
 
     def test_logged_in_user_can_update_their_comment(self):
         """
@@ -98,7 +94,6 @@ class CommentDetailListViewTest(APITestCase):
             '/comments/2/', {'content': 'chris edited a comment'}, follow=True
         )
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        # passes
 
     def test_user_can_delete_their_comment(self):
         """
@@ -107,7 +102,6 @@ class CommentDetailListViewTest(APITestCase):
         self.client.login(username='chris', password='testpass')
         response = self.client.delete('/comments/1/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        # passes
 
     def test_user_can_not_delete_other_user_comment(self):
         """
@@ -116,4 +110,3 @@ class CommentDetailListViewTest(APITestCase):
         self.client.login(username='brian', password='testpass')
         response = self.client.delete('/comments/1/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        # passes
