@@ -4,22 +4,6 @@ from django.contrib.auth.models import User
 
 
 class TravelPlan(models.Model):
-    image_filter_choices = [
-        ('_1977', '1977'),
-        ('brannan', 'Brannan'),
-        ('earlybird', 'Earlybird'),
-        ('hudson', 'Hudson'),
-        ('inkwell', 'Inkwell'),
-        ('lofi', 'Lo-Fi'),
-        ('kelvin', 'Kelvin'),
-        ('normal', 'Normal'),
-        ('nashville', 'Nashville'),
-        ('rise', 'Rise'),
-        ('toaster', 'Toaster'),
-        ('valencia', 'Valencia'),
-        ('walden', 'Walden'),
-        ('xpro2', 'X-pro II')
-    ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=False)
@@ -43,7 +27,7 @@ class TravelPlan(models.Model):
         upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
 
     image_filter = models.CharField(
-        max_length=40, choices=image_filter_choices, default='normal'
+        max_length=50, default='normal'
     )
 
     class Meta:

@@ -6,10 +6,14 @@ The profile page enables users to create their unique profiles, select their fav
 
 On the other hand, the post page allows users to post diverse images of their recent trips, add location information, and write a short paragraph to share their travel experiences with others.
 
+All registered users can search a location, view a travel plan and even comemnt on a travel plan to give updates to the location or any small ideas. 
+
 ---
 
 # Project goal
 The Post Planner API is a Django REST Framework API that powers the Post Planner website. It is designed to help users plan trips abroad by providing them with a unique perspective on various destinations. By browsing through photos and blogs from other travelers, users can gain insights into popular and off-the-beaten-path locations. For adventure enthusiasts, Post Planner offers inspiration to explore and experience new activities like cycling, hiking, and more. With Post Planner, planning a trip has never been easier or more exciting.
+
+"Capturing the World: Exploring New Places and Moments Through the Lens"
 
 ---
 
