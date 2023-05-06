@@ -17,32 +17,32 @@ class TravelPlan(models.Model):
 
     image1 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
          )
     image2 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
         )
     image3 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
         )
     image4 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
         )
     image5 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
         )
     image6 = models.ImageField(
         upload_to='images/',
-        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
         )
     image_filter = models.CharField(
