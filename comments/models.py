@@ -11,7 +11,7 @@ class Comment(models.Model):
     post = models.ForeignKey(TravelPlan, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = models.TextField(max_length=250, blank=False)
     approved = models.BooleanField(default=False)
 
     class Meta:
