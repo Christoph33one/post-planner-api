@@ -189,6 +189,31 @@ By installing coverage and running a coverage test, I was able to generate a det
 
 ![](assets/coverage%20test%20report%20API.png)
 
+---
+
+### Manual testing
+
+To provide a comprehensive overview of the application's performance, I have personally tested all the functions for storing, viewing, retrieving, updating, and deleting data.
+
+1. To verify the functionality of the profile model and the user profile creation process, I utilized the populated form from the API and provided the necessary information along with a user image. Afterwards, I accessed the user's profile through the URL endpoint '/profiles/1', which returned an array containing all the added data as well as the image link to be viewed.
+
+2. I implemented a new URL endpoint on /profiles/ with the expectation of being able to view a complete list of all profiles in the system through the API, and receive a status code of HTTP_200_OK. When I accessed this endpoint, I was able to successfully retrieve a list of all profiles that had been created, along with their associated data.
+
+3. To ensure that invalid profile IDs cannot be retrieved, I added a URL endpoint to the profiles URL (/profiles/999/). Upon accessing this endpoint, I received the expected HTTP 404 Not Found status code, along with a message indicating that the profile was not found. This confirmed that the functionality was working correctly.
+
+4. I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. This endpoint allowed me to view an array of data and images stored in the TravelPlan data model. Additionally, the displayed data and time was posted in a well-formatted, easily readable format.
+
+
+5. I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. I verified that users who are not registered or logged in are not able to create a travel plan as the API does not show the form to create a travel plan.
+
+6. 
+To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
+
+
+
+
+
+
 
 ---
 
