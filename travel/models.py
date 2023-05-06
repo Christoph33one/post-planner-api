@@ -16,18 +16,35 @@ class TravelPlan(models.Model):
     approved = models.BooleanField(default=False)
 
     image1 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+         )
     image2 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+        )
     image3 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+        )
     image4 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+        )
     image5 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+        )
     image6 = models.ImageField(
-        upload_to='images/', default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg', blank=True)
-
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+        )
     image_filter = models.CharField(
         max_length=50, default='normal'
     )

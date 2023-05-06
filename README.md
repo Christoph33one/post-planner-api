@@ -113,13 +113,12 @@ In order to enhance the user experience and assist with location-based travel pl
 
 - As a developer using the post planner API, I want the site administrator to have control over if the commetn can be added to a post. This also enusures site safety and harmful content being added.
 
-
+---
 
 # Testing
 
 ### Automated tests
 I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
-
 
 - A logged-in user can create a post with the correct user ID. Additionally, three fields from the travelplan model were tested within the response, as these fields have an attribute of blank set to false. This return a status.HTTP_201_CREATED
 
@@ -189,6 +188,7 @@ I have used Django's API Test Case to perform all automated tests. I have thorou
 By installing coverage and running a coverage test, I was able to generate a detailed report of all the code that was tested through the automated testing process. The report is presented in an HTML format that enhances its readability and can be used for documentation purposes.
 
 ![](assets/coverage%20test%20report%20API.png)
+
 
 ---
 

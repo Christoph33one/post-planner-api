@@ -12,6 +12,11 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=250, blank=False)
+    comment_image = models.ImageField(
+        upload_to='images/',
+        default='../https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',
+        blank=True
+         )
     approved = models.BooleanField(default=False)
 
     class Meta:
