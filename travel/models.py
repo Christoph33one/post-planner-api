@@ -11,6 +11,8 @@ class TravelPlan(models.Model):
     location = models.CharField(max_length=100, blank=False)
     activities = models.CharField(
         max_length=80, choices=Profile.ACTIVITY_CHOICES, blank=True)
+    caption = models.CharField(
+        max_length=30, default='', blank=False)
     approved = models.BooleanField(default=False)
 
     image1 = models.ImageField(
