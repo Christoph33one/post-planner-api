@@ -76,7 +76,7 @@ In order to enhance the user experience and assist with location-based travel pl
 ---
 
 # User stories
- Profile
+### Profile
 - As a developer using the post planner API, I want to fetch a list of all the profiles created so that I can display them to the user interface.
 
 - As a developer using the Post Planner API, I want to retrieve data from a user's profile so that I can display it to the user. This includes information such as their profile image, favorite activities, when their profile was created, and a section where they can write a short description about themselves. By accessing this data through the API, I can present a more personalized experience to the user 
@@ -85,7 +85,9 @@ In order to enhance the user experience and assist with location-based travel pl
 
 - As a developer using the post planner API, I want to create two API endpoints for modifying user profile data, one for editing user profiles and another for deleting user profiles. This will provide users with the ability to update or remove their profile information through the API, improving the user experience and making the API more user-friendly.
 
-Travel plan
+--- 
+
+### Travel plan
 - As a developer using the post planner API, I want an endpoint to get all travel plans so that I do not have to manually query the database and then add them manually.
 
 - As a developer using the post planner API, I want an endpoint to save a travel plan object to the database so that users and share their content.
@@ -97,6 +99,21 @@ Travel plan
 - As a developer using the post planner API, I want to restrict users from editing or deleting a travel plan that they did not create, ensuring that only the original creators have control over their content.
 
 ---
+
+### Comments
+- As a developer using the post planner API, I want an endpoint to get all comments added so that I do not have to manually query the database and then add them manually.
+
+-  As a developer using the post planner API, I want a url endpoint to retreieve a comment by users ID.
+
+-  As a developer using the post planner API, I want to be able ot add a comment to a post I do not own.
+
+- As a developer using the post planner API, I want a user to be able to edut and delete a comment they added.
+
+- As a developer using the post planner API, I want only authenticated / logged in users to add comments. This ensures online safety.
+
+- As a developer using the post planner API, I want the site administrator to have control over if the commetn can be added to a post. This also enusures site safety and harmful content being added.
+
+
 
 # Testing
 
