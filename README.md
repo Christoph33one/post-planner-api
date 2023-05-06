@@ -206,8 +206,17 @@ To provide a comprehensive overview of the application's performance, I have per
 
 5. I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. I verified that users who are not registered or logged in are not able to create a travel plan as the API does not show the form to create a travel plan.
 
-6. 
-To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
+6. To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
+
+7.  thoroughly tested the update and delete functions of the travel plan model by using the /posts/3 URL endpoint to retrieve a specific travel plan. I was able to update the plan using the PUT method or delete it using the DELETE method.
+
+When updating a plan, the API provides a form similar to the one used for creating a new post. After editing the plan, the API returns a HTTP 200 OK status code as expected.
+
+To delete a plan, I clicked on the delete button located within the travel plan post detail, and once the deletion was completed, the API returned a HTTP 204 No Content status code as expected.
+
+8. ADD COMMENTS, SEARCH FEILD, REGISTER, LOGIN, LOGIN, 
+
+
 
 
 
