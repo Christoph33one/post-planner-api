@@ -3,6 +3,10 @@ from .models import TravelPlan
 
 
 class TravelPlanSerializer(serializers.ModelSerializer):
+    """
+    Serializes TravelPlan model data into a specific format
+    for storage or transmission.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -31,9 +35,23 @@ class TravelPlanSerializer(serializers.ModelSerializer):
     class Meta:
         model = TravelPlan
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at', 'title',
-            'description', 'location', 'activities', 'caption',
-            'image1', 'image2', 'image3', 'image4', 'image5', 'image6',
-            'image_filter', 'comments_count'
+            'id'
+            'owner',
+            'is_owner',
+            'profile_id',
+            'profile_image',
+            'created_at',
+            'title',
+            'description',
+            'location',
+            'activities',
+            'caption',
+            'image1',
+            'image2',
+            'image3',
+            'image4',
+            'image5',
+            'image6',
+            'image_filter',
+            'comments_count'
         ]
