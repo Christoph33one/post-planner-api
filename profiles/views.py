@@ -21,6 +21,7 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
+        # DRF filtering by owner__profile field.
         'owner__profile',
     ]
     ordering_fields = [

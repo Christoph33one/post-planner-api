@@ -4,7 +4,8 @@ from .models import Comment
 
 class CommentSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Comment model
+    Serializes Comment model data into a specific format
+    for storage or transmission.
     Adds three extra fields when returning a list of Comment instances
     """
     owner = serializers.ReadOnlyField(source='owner.username')

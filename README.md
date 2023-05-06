@@ -45,7 +45,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 The process of designing the database was closely aligned with the development of the API endpoints.  By using this approach, I was able to ensure that each data model was well-suited to support the functionality of the API and the needs of the end-users.
 
 ### Data base structure
-![](assets/data%20base%20structure.png)
+![](assets/Screenshot%202023-05-06%20at%2017.46.45.png)
 
 
 # Profiles
