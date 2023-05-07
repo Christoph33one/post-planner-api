@@ -8,6 +8,7 @@ On the other hand, the post page allows users to post diverse images of their re
 
 All registered users can search a location, view a travel plan and even comemnt on a travel plan to give updates to the location or any small ideas. 
 
+This is a [link](https://travel-planner-api.herokuapp.com/) to the live API.
 ---
 
 # Project goal
@@ -120,32 +121,28 @@ In order to enhance the user experience and assist with location-based travel pl
 ### Automated tests
 I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
 
-- A logged-in user can create a post with the correct user ID. Additionally, three fields from the travelplan model were tested within the response, as these fields have an attribute of blank set to false. This return a status.HTTP_201_CREATED
-
-- An unauthorized user attempting to create a post will receive a status.HTTP_403_FORBIDDEN error, indicating that they do not have the necessary permissions. This is also tested as part of the overall verification process.
-
 ### Profile
 
 - Test a profile is created with an authenicated user only and can be viewed withe url endpoint of /profiles/ also status.HTTP_200_OK displayed from the api.
 
-- Test a profile can be retieved using a matching user ID WHY IS THIS TEST PASSING ON A 403    ???????????????????????????????
+- Test a profile can be retieved using a matching user ID and the api to return a statius HTTP_200_OK.
 
 - Test a unauthorised user can not log into a profile they do not own and return a status HTTP_403_FORBIDDEN displayed from the api.
 
 - Test a authenticated user can log into thier profile and a url endpoint of /profiles/1 to give the users ID. Also a status.HTTP_200_OK displayed from the api.
 
-- Test a logged in user can update their with the url endpoint of /profiles/1/ and the api returns a status.HTTP_200_OK
+- Test a logged in user can update their with the url endpoint of /profiles/1/ and the api returns a status.HTTP_200_OK.
 
-- Test an unauthorised user can not update a profile they do not own and the api returns a status HTTP_403_FORBIDDEN
+- Test an unauthorised user can not update a profile they do not own and the api returns a status HTTP_403_FORBIDDEN.
 
-- Test a user can delete their profile on the request and the api returns a status.HTTP_204_NO_CONTENT after deletion
+- Test a user can delete their profile on the request and the api returns a status.HTTP_204_NO_CONTENT after deletion.
 
-- Test an unauthorised user can not delete a profile they do not won and the pai returns a status HTTP_403_FORBIDDEN
+- Test an unauthorised user can not delete a profile they do not won and the pai returns a status HTTP_403_FORBIDDEN.
 
 
 ### Travel plan post detail
 
-- Tested that all traveplans can be viewed as a list in the api /travelplanposts/
+- Tested that all traveplans can be viewed as a list in the api /travelplanposts/ and the api returns a status HTTP_200_OK.
 
 - Tested whether a travel plan can be retrieved using the URL /travelplanposts/?owner__profile=3 and the correct user ID. Additionally, verified that the response returns a status.HTTP_200_OK error, indicating that the operation was successful.
 
@@ -229,10 +226,12 @@ To delete a plan, I clicked on the delete button located within the travel plan 
 # Deployment
 Deployment
 To deploy Django application follow link instructions
-https://github.com/Code-Institute-Org/python-essentials-template
+Click the [link](https://github.com/Code-Institute-Org/python-essentials-template)
+
 Creating an app in Django - please follow the link below with instructions to create an app
 
-https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf
+Click here [link](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
+
 Repository using GitPod
 Navigate to the repository page on GitHub
 Click the "GitPod" button in the top right of the repository.
@@ -242,9 +241,12 @@ For documentation and saving your work, which should be done on a regular basis.
 git add .
 git commit -m"YOUR MESSAGE HERE! PLEASE KEEP IT SHORT BUT BRIEF!"
 git push ( saves your work with the commit message. Your work will now be pushed to your GitHub repository )
+
 Setting up Django Project and Deploying to Heroku Please follow the cheat sheet links below and in the order provided.
 
-https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit#
+Click here for [cheat sheet](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit#)
+
+---
 
 Deployment: Heroku app
 
