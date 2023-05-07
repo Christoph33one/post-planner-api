@@ -37,7 +37,6 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 <li><a herf="#user-stories">User stories</a></li>
 <li><a herf="testing">Testing</a></li>
 <li><a herf="#deployment">Deployment</a></li>
-<li><a herf="#"></a></li>
 </ul>
 
 ---
@@ -144,17 +143,24 @@ I have used Django's API Test Case to perform all automated tests. I have thorou
 
 - Tested that all traveplans can be viewed as a list in the api /travelplanposts/ and the api returns a status HTTP_200_OK.
 
+
 - Tested whether a travel plan can be retrieved using the URL /travelplanposts/?owner__profile=3 and the correct user ID. Additionally, verified that the response returns a status.HTTP_200_OK error, indicating that the operation was successful.
+
+
 
 - Tested the scenario where an incorrect URL is used to retrieve a post (e.g., /posts/999). As this post count does not exist, the response should return a status.HTTP_404_NOT_FOUND error, indicating that the requested resource could not be found.
 
-- As part of our testing process, I verified that a user is able to update their own posts. To do so, I used the user's ID and a filter method to identify the correct post ID, and updated the post with a new title. I also verified that the response returns a status.HTTP_200_OK error, indicating that the update was successful. This helps ensure that users are able to modify their own posts as needed
+
+- As part of our testing process, I verified that a user is able to update their own posts. To do so, I used the user's ID and a filter method to identify the correct post ID, and updated the post with a new title. I also verified that the response returns a status.HTTP_200_OK error, indicating that the update was successful. This helps ensure that users are able to modify their own posts as needed.
+
 
 - As part of the testing process, I verified that a user is not able to update another user's post. To do so, I added a logged-in user ID to the response of a different post ID, and verified that the expected result is a status.HTTP_403_FORBIDDEN error. This helps ensure that authenticated users cannot edit posts that do not belong to them.
 
-- As part of the testing process, I verified that a user is able to delete their post. To do so I added a filter method to indentify the owner is the onwer of that post with the correct user ID. Once a post had been delete the api is to return a status.HTTP_204_NO_CONTENT. YOU NEED TO WRITE THIS TEST !!!!!!!!! ????????
 
-- As part of the testing process, I wanted a unauthorised user to not be able to delete a post they do not own. To verify the result the api is to return a status.HTTP_403_FORBIDDEN error.  This helps ensure that authenticated users cannot delete posts that do not belong to them. NEED TO WRITE THIS TEST !!!!!!!! ???????????
+- As part of the testing process, I verified that a user is able to delete their post. To do so I added a filter method to indentify the owner is the onwer of that post with the correct user ID. Once a post had been delete the api is to return a status.HTTP_204_NO_CONTENT.
+
+
+- As part of the testing process, I wanted a unauthorised user to not be able to delete a post they do not own. To verify the result the api is to return a status.HTTP_403_FORBIDDEN error.  This helps ensure that authenticated users cannot delete posts that do not belong to them. 
 
 ---
 
@@ -192,37 +198,83 @@ By installing coverage and running a coverage test, I was able to generate a det
 
 To provide a comprehensive overview of the application's performance, I have personally tested all the functions for storing, viewing, retrieving, updating, and deleting data.
 
-1. To verify the functionality of the profile model and the user profile creation process, I utilized the populated form from the API and provided the necessary information along with a user image. Afterwards, I accessed the user's profile through the URL endpoint '/profiles/1', which returned an array containing all the added data as well as the image link to be viewed.
+### Profile
+- To verify the functionality of the profile model and the user profile creation process, I utilized the populated form from the API and provided the necessary information along with a user image. Afterwards, I accessed the user's profile through the URL endpoint '/profiles/1', which returned an array containing all the added data as well as the image link to be viewed.
+![](assets/profile%20user%20id.png)
 
-2. I implemented a new URL endpoint on /profiles/ with the expectation of being able to view a complete list of all profiles in the system through the API, and receive a status code of HTTP_200_OK. When I accessed this endpoint, I was able to successfully retrieve a list of all profiles that had been created, along with their associated data.
+- I implemented a new URL endpoint on /profiles/ with the expectation of being able to view a complete list of all profiles in the system through the API, and receive a status code of HTTP_200_OK. When I accessed this endpoint, I was able to successfully retrieve a list of all profiles that had been created, along with their associated data.
+![](assets/profile%20list.png)
 
-3. To ensure that invalid profile IDs cannot be retrieved, I added a URL endpoint to the profiles URL (/profiles/999/). Upon accessing this endpoint, I received the expected HTTP 404 Not Found status code, along with a message indicating that the profile was not found. This confirmed that the functionality was working correctly.
+- I implemented a new URL endpoint on /profiles/1 with the expectation of being able to view a single user profile and the data array for all the users details. The api also returns the status HTTP_200_OK. 
+![](assets/profile%20user%20id.png)
 
-4. I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. This endpoint allowed me to view an array of data and images stored in the TravelPlan data model. Additionally, the displayed data and time was posted in a well-formatted, easily readable format.
+
+- To verify the functionality that a user can update their profile, I logged in as a user and below rthe profile data array, I can view a update form and a PUT request. Once update I am returned to the updated profile.
+![](assets/profile%20update.png)
+
+- To verify the functionality for a user to delete their profile. I logged in as a user and viewed the edit and delete buttons with in the api. 
+![](assets/profile%20delete.png)
+
+- To ensure that invalid profile IDs cannot be retrieved, I added a URL endpoint to the profiles URL (/profiles/999/). Upon accessing this endpoint, I received the expected HTTP 404 Not Found status code, along with a message indicating that the profile was not found. This confirmed that the functionality was working correctly.
+![](assets/invald%20user%20no%20edit.png)
 
 
-5. I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. I verified that users who are not registered or logged in are not able to create a travel plan as the API does not show the form to create a travel plan.
 
-6. To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
 
-7.  I have thoroughly tested the update and delete functions of the travel plan model by using the /posts/3 URL endpoint to retrieve a specific travel plan. I was able to update the plan using the PUT method or delete it using the DELETE method.
+
+
+
+
+
+
+### Travel plan
+
+- I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. This endpoint allowed me to view an array of data and images stored in the TravelPlan data model. Additionally, the displayed data and time was posted in a well-formatted, easily readable format.
+![](assets/travelplan%20list.pngs)
+
+- I accessed the URL endpoint /travelplanposts/ to retrieve a comprehensive list of all travel plans created. I verified that users who are not registered or logged in are not able to create a travel plan as the API does not show the form to create a travel plan.
+)
+
+- To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
+![](assets/travelplan%20by%20user%20id.png)
+
+-  I have thoroughly tested the update and delete functions of the travel plan model by using the /posts/3 URL endpoint to retrieve a specific travel plan. I was able to update the plan using the PUT method or delete it using the DELETE method.
+![](assets/travelplan%20edit%20%3A%20delete.png)
 
 When updating a plan, the API provides a form similar to the one used for creating a new post. After editing the plan, the API returns a HTTP 200 OK status code as expected.
 
 To delete a plan, I clicked on the delete button located within the travel plan post detail, and once the deletion was completed, the API returned a HTTP 204 No Content status code as expected.
+![](assets/profile%20delete.png
 
-8. I accessed the URL endpoint /comments/ to retreieve all comments made ny individual users and for the api to return a status HTTP_200_OK.
 
-9. To test a delete or update a comment I used the url endpoint of /comments/. Testing that a logged in user can edit a post login I can view a form to edit a comment. Once edited the api returns a status HTTP_200_OK is and the comment has been changed.
+### Comments
+- I accessed the URL endpoint /comments/ to retreieve all comments made ny individual users and for the api to return a status HTTP_200_OK.
+![](assets/comments%20list.png)
+
+- To test a delete or update a comment I used the url endpoint of /comments/. Testing that a logged in user can edit a post login I can view a form to edit a comment. Once edited the api returns a status HTTP_200_OK is and the comment has been changed.
 When deleting a comment the api returns a status HTTP_204_NO_CONTENT and the comment no longer exists.
+![](assets/editing%20a%20comment.png)
+![](assets/delete%20a%20comment.png)
 
 10. To test a unregistered or logged out user can not add a comment, I used the endpoint /comments/ to view all comments. But no form is Available to add a comment. 
-
-11. testing the search field. By using the endpoint /travelplanposts/ I viewed all travel plans. Then using the search by location filter I searced a location the dose exist. The results where all posts wiht the location I searched for. 
-I then added a location that does not exist, the results are that nolocation is to be found.
+![](assets/logged%20out%20view%20comments.png)
 
 
-REGISTER, LOGIN, LOGIN, 
+### Search feature
+- Testing the search field. By using the endpoint /travelplanposts/ I viewed all travel plans. Then using the search by location filter I searced a location the dose exist. The results where all posts wiht the location I searched for. 
+I then added a location that does not exist, the results are that this location dose not retun any travel plan.
+![](assets/search%20travel%20plan%20feature.png)
+
+### authentication 
+- To tets a user can login I used the login form and entered the users correct credentials. This is gave my access to the users profile.
+![](assets/login.png)
+
+- To test log out, I used the log out button with the api. This logged me out as the user and returned me to the url I was currently on but restricting me to access the profile, add travel plans or add comments
+![](assets/log%20out.png)
+
+- To test a user can register, I had to create a new super user and access the admin panel. I do not have a backend function for a user to register. This is to be implemented in the front-end. 
+![](assets/new%20profile%20in%20admn%20panel.png)
+
 
 
 
