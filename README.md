@@ -205,13 +205,24 @@ To provide a comprehensive overview of the application's performance, I have per
 
 6. To retrieve an individual travel plan, I utilized the URL endpoint /posts/3. This provided me access to the third travel plan created, including the user ID and all data associated with that plan. I also verified that even an unregistered or logged-out user can view the travel plan. As anticipated, the API returned a status of HTTP_200_OK.
 
-7.  thoroughly tested the update and delete functions of the travel plan model by using the /posts/3 URL endpoint to retrieve a specific travel plan. I was able to update the plan using the PUT method or delete it using the DELETE method.
+7.  I have thoroughly tested the update and delete functions of the travel plan model by using the /posts/3 URL endpoint to retrieve a specific travel plan. I was able to update the plan using the PUT method or delete it using the DELETE method.
 
 When updating a plan, the API provides a form similar to the one used for creating a new post. After editing the plan, the API returns a HTTP 200 OK status code as expected.
 
 To delete a plan, I clicked on the delete button located within the travel plan post detail, and once the deletion was completed, the API returned a HTTP 204 No Content status code as expected.
 
-8. ADD COMMENTS, SEARCH FEILD, REGISTER, LOGIN, LOGIN, 
+8. I accessed the URL endpoint /comments/ to retreieve all comments made ny individual users and for the api to return a status HTTP_200_OK.
+
+9. To test a delete or update a comment I used the url endpoint of /comments/. Testing that a logged in user can edit a post login I can view a form to edit a comment. Once edited the api returns a status HTTP_200_OK is and the comment has been changed.
+When deleting a comment the api returns a status HTTP_204_NO_CONTENT and the comment no longer exists.
+
+10. To test a unregistered or logged out user can not add a comment, I used the endpoint /comments/ to view all comments. But no form is Available to add a comment. 
+
+11. testing the search field. By using the endpoint /travelplanposts/ I viewed all travel plans. Then using the search by location filter I searced a location the dose exist. The results where all posts wiht the location I searched for. 
+I then added a location that does not exist, the results are that nolocation is to be found.
+
+
+REGISTER, LOGIN, LOGIN, 
 
 
 
