@@ -78,6 +78,7 @@ In order to enhance the user experience and assist with location-based travel pl
 # User stories
 ### Profile
 - As a developer using the post planner API, I want to fetch a list of all the profiles created so that I can display them to the user interface.
+Click the [link](https://github.com/users/Christoph33one/projects/27/views/1) for the kanban board user stories
 
 - As a developer using the Post Planner API, I want to retrieve data from a user's profile so that I can display it to the user. This includes information such as their profile image, favorite activities, when their profile was created, and a section where they can write a short description about themselves. By accessing this data through the API, I can present a more personalized experience to the user 
 
@@ -186,6 +187,7 @@ I have used Django's API Test Case to perform all automated tests. I have thorou
 
 - As part of the testing process, I sought to verify that an unauthorized user cannot delete a comment they don't own. To do so, I used a different username and a non-matching endpoint URL ("/comment/1/"), retrieved a user's comment, and then issued a DELETE request to the API. This was done to check whether the response would return a status of status.HTTP_403_FORBIDDEN.
 
+---
 
 ### Coverage test report
 By installing coverage and running a coverage test, I was able to generate a detailed report of all the code that was tested through the automated testing process. The report is presented in an HTML format that enhances its readability and can be used for documentation purposes.
@@ -218,14 +220,7 @@ To provide a comprehensive overview of the application's performance, I have per
 - To ensure that invalid profile IDs cannot be retrieved, I added a URL endpoint to the profiles URL (/profiles/999/). Upon accessing this endpoint, I received the expected HTTP 404 Not Found status code, along with a message indicating that the profile was not found. This confirmed that the functionality was working correctly.
 ![](assets/invald%20user%20no%20edit.png)
 
-
-
-
-
-
-
-
-
+---
 
 ### Travel plan
 
@@ -246,6 +241,7 @@ When updating a plan, the API provides a form similar to the one used for creati
 To delete a plan, I clicked on the delete button located within the travel plan post detail, and once the deletion was completed, the API returned a HTTP 204 No Content status code as expected.
 ![](assets/profile%20delete.png
 
+---
 
 ### Comments
 - I accessed the URL endpoint /comments/ to retreieve all comments made ny individual users and for the api to return a status HTTP_200_OK.
@@ -259,11 +255,14 @@ When deleting a comment the api returns a status HTTP_204_NO_CONTENT and the com
 10. To test a unregistered or logged out user can not add a comment, I used the endpoint /comments/ to view all comments. But no form is Available to add a comment. 
 ![](assets/logged%20out%20view%20comments.png)
 
+---
 
 ### Search feature
 - Testing the search field. By using the endpoint /travelplanposts/ I viewed all travel plans. Then using the search by location filter I searced a location the dose exist. The results where all posts wiht the location I searched for. 
 I then added a location that does not exist, the results are that this location dose not retun any travel plan.
 ![](assets/search%20travel%20plan%20feature.png)
+
+---
 
 ### authentication 
 - To tets a user can login I used the login form and entered the users correct credentials. This is gave my access to the users profile.
