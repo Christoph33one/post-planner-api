@@ -12,7 +12,7 @@ This is a [link](https://travel-planner-api.herokuapp.com/) to the live API.
 ---
 
 # Project goal
-The Post Planner API is a Django REST Framework API that powers the Post Planner website. It is designed to help users plan trips abroad by providing them with a unique perspective on various destinations. By browsing through photos and blogs from other travelers, users can gain insights into popular and off-the-beaten-path locations. For adventure enthusiasts, Post Planner offers inspiration to explore and experience new activities like cycling, hiking, and more. With Post Planner, planning a trip has never been easier or more exciting.
+The Post Planner API is a Django REST Framework API that powers the Post Plan & travel website. It is designed to help users plan trips abroad by providing them with a unique perspective on various destinations. By browsing through photos and blogs from other travelers, users can gain insights into popular and off-the-beaten-path locations. 
 
 "Capturing the World: Exploring New Places and Moments Through the Lens"
 
