@@ -28,17 +28,18 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 
 
 # List of contents
-<ul>
-<li><a herf="#data-models">Data models</a></li>
-<li><a herf="#profiles">Profiles</a></li>
-<li><a herf="#travel-plan">Travel plan</a></li>
-<li><a herf="#comments">Comments</a></li>
-<li><a herf="#search-filter">Search & filter</a><li>
-<li><a herf="#user-stories">User stories</a></li>
-<li><a herf="testing">Testing</a></li>
-<li><a herf="#deployment">Deployment</a></li>
-</ul>
 
+<li><a href="#data-models">Data models</a></li>
+<li><a href="#profiles">Profiles</a></li>
+<li><a href="#travel-plan">Travel plan</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#search-filter">Search bar</a></li>
+<li><a href="#user-stories">User stories</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#deployment">Deployemnt</a></li>
+<li><a href="#credits">Credits</a></li>
+
+# Design
 ---
 
 # Data models
@@ -66,11 +67,11 @@ To further enhance the user experience with a travel post, an update and delete 
 
 ---
 # Comments
-With the Comments model, authenticated users can conveniently leave feedback on fellow users' travel plans. This model leverages a one-to-many relationship, connecting comments to the relevant travel plan through a foreign key. It also provides users with a content field to enter their comments, as well as created-at and updated-at timestamps. To ensure online safety, I have included an "approved" boolean field, allowing the site administrator to review and approve comments that adhere to the site's guidelines.
+With the Comments model, authenticated users can conveniently leave feedback on fellow users' travel plans. This model leverages a one-to-many relationship, connecting comments to the relevant travel plan through a foreign key. It also provides users with a content field to enter their comments, an image field for a user to add an image to a comment, as well as created-at and updated-at timestamps. To ensure online safety, I have included an "approved" boolean field, allowing the site administrator to review and approve comments that adhere to the site's guidelines. 
 
 ---
 
-# Search & filter 
+# Search filter 
 In order to enhance the user experience and assist with location-based travel planning, I have incorporated a search bar feature. Users are able to easily search for a desired destination and access any relevant travel plans that have been created for that location.
 
 ---
@@ -78,7 +79,7 @@ In order to enhance the user experience and assist with location-based travel pl
 # User stories
 ### Profile
 - As a developer using the post planner API, I want to fetch a list of all the profiles created so that I can display them to the user interface.
-Click the [link](https://github.com/users/Christoph33one/projects/27/views/1) for the kanban board user stories
+### Click the [link](https://github.com/users/Christoph33one/projects/27/views/1) for the kanban board user stories
 
 - As a developer using the Post Planner API, I want to retrieve data from a user's profile so that I can display it to the user. This includes information such as their profile image, favorite activities, when their profile was created, and a section where they can write a short description about themselves. By accessing this data through the API, I can present a more personalized experience to the user 
 
@@ -108,11 +109,11 @@ Click the [link](https://github.com/users/Christoph33one/projects/27/views/1) fo
 
 -  As a developer using the post planner API, I want to be able ot add a comment to a post I do not own.
 
-- As a developer using the post planner API, I want a user to be able to edut and delete a comment they added.
+- As a developer using the post planner API, I want a user to be able to edit and delete a comment they added.
 
 - As a developer using the post planner API, I want only authenticated / logged in users to add comments. This ensures online safety.
 
-- As a developer using the post planner API, I want the site administrator to have control over if the commetn can be added to a post. This also enusures site safety and harmful content being added.
+- As a developer using the post planner API, I want the site administrator to have control over if the comments can be added to a post. This also enusures site safety and harmful content being added.
 
 ---
 
@@ -355,5 +356,14 @@ With those changes in place, make sure to save your file. Your application will 
 
 Run the command - python manage.py migrate
 
+---
 
+# Credits
 
+For this api to be created i would like to givw credie to the following
+
+- My mentor Lauren Nicole, who has guided me through the build process, giving me available information and helping me understand the project out comes.
+
+- To code institute for giving me the resources to understand the function of an api and the resources for creating this project.
+
+- To the Slack community for all Q&A's. 
