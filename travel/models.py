@@ -7,12 +7,12 @@ class TravelPlan(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=False)
-    description = models.TextField(max_length=500, blank=False)
+    description = models.TextField(max_length=2000, blank=False)
     location = models.CharField(max_length=100, blank=False)
     activities = models.CharField(
         max_length=80, choices=Profile.ACTIVITY_CHOICES, blank=True)
     caption = models.CharField(
-        max_length=30, default='', blank=False)
+        max_length=50, default='', blank=False)
     approved = models.BooleanField(default=False)
 
     image1 = models.ImageField(
