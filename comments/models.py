@@ -14,7 +14,7 @@ class Comment(models.Model):
     content = models.TextField(max_length=250, blank=False)
     comment_image = models.ImageField(
         upload_to='images/',
-        default='../sample.jpg ',  # noqa
+        default='https://res.cloudinary.com/dqgs0kltd/image/upload/v1673026764/samples/ecommerce/accessories-bag.jpg',  # noqa
         blank=True
          )
     approved = models.BooleanField(default=False)
