@@ -28,6 +28,7 @@ class TravelPlanPostList(generics.ListCreateAPIView):
     ]
     filterset_fields = [
         # To retreieve users post by the users ID
+        'owner__followed__owner__profile',
         'owner__profile',
     ]
     search_fields = [
