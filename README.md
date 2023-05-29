@@ -8,7 +8,7 @@ On the other hand, the post page allows users to post diverse images of their re
 
 All registered users can search a location, view a travel plan and even comemnt on a travel plan to give updates to the location or any small ideas. 
 
-This is a [link](https://travel-planner-api.herokuapp.com/) to the live API.
+This is a [link](https://travel-planner-api.herokuapp.com/) to the live API, please take look.
 ---
 
 # Project goal
