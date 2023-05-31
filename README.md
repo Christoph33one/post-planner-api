@@ -33,6 +33,7 @@ The project's general structure draws inspiration from the DRF-API walkthrough, 
 <li><a href="#profiles">Profiles</a></li>
 <li><a href="#travel-plan">Travel plan</a></li>
 <li><a href="#comments">Comments</a></li>
+<li><a href="#followers">Follow / following</a></li>
 <li><a href="#search-filter">Search bar</a></li>
 <li><a href="#user-stories">User stories</a></li>
 <li><a href="#testing">Testing</a></li>
@@ -69,6 +70,20 @@ To further enhance the user experience with a travel post, an update and delete 
 # Comments
 With the Comments model, authenticated users can conveniently leave feedback on fellow users' travel plans. This model leverages a one-to-many relationship, connecting comments to the relevant travel plan through a foreign key. It also provides users with a content field to enter their comments, an image field for a user to add an image to a comment, as well as created-at and updated-at timestamps. To ensure online safety, I have included an "approved" boolean field, allowing the site administrator to review and approve comments that adhere to the site's guidelines. 
 
+---
+
+# Followers
+For the followers model, authenticated users can follow or unfollow profiles. This model uses a one-to-many relationship, connecting the user with other profiles. The model includes three fields,
+
+The owner field, This field defines a foreign key field named owner that references the User model and also a related_name of "following" as it value, for this you can access the instances of this model.
+The on_delete parameter specifies what should happen when the referenced User object is deleted. In this case, models.CASCADE is specified, which means that when a User object is deleted, all related instances of this model will also be deleted.
+
+
+Followed, this line defines another foreign key field named followed, also referencing the User model.
+The related_name parameter sets the reverse relation name as 'followed'. So from a User object, you can access instances of this model through the attribute followed.
+
+created_at, this line defines a DateTimeField named created_at, which represents a date and time value.
+The auto_now_add parameter is set to True, which means that whenever an instance of this model is created, the created_at field will automatically be set to the current date and time.
 ---
 
 # Search filter 
@@ -114,6 +129,20 @@ In order to enhance the user experience and assist with location-based travel pl
 - As a developer using the post planner API, I want only authenticated / logged in users to add comments. This ensures online safety.
 
 - As a developer using the post planner API, I want the site administrator to have control over if the comments can be added to a post. This also enusures site safety and harmful content being added.
+
+---
+### Follow / unfollow
+- As a developer using the post planner API, I can only access the followers function if authenticated.
+
+- As a developer using the post planner API, I can access the list of all followers with the url endpiont of /followers/. This returns a list of followers with the lastest at the top of the list.
+
+- As a developer using the post planner API, I can view a drop down menu with all profiles create.
+
+- As a developer using the post planner API, using the drop down menu I can select a profile. Using a post request, I can follow the selected profile.
+
+- As a developer using the post planner API, I can view a followers / following count of all the profiles I follow and the the number of profile following me. To retrieve the count I can access this with the endpoint of /profiles/id.
+
+- As a developer using the post planner API, If I try to follow a profile I already follow, I am retunred a status HTTP 400 Bad Request and an error message "you already follow this profile".
 
 ---
 
@@ -190,6 +219,7 @@ I have used Django's API Test Case to perform all automated tests. I have thorou
 
 ---
 
+
 ### Coverage test report
 By installing coverage and running a coverage test, I was able to generate a detailed report of all the code that was tested through the automated testing process. The report is presented in an HTML format that enhances its readability and can be used for documentation purposes.
 
@@ -255,6 +285,27 @@ When deleting a comment the api returns a status HTTP_204_NO_CONTENT and the com
 
 10. To test a unregistered or logged out user can not add a comment, I used the endpoint /comments/ to view all comments. But no form is Available to add a comment. 
 ![](assets/logged%20out%20view%20comments.png)
+
+---
+
+### Follower test
+
+- As part of the testing process, I can view a following function using the url endpoint of /followwers/.
+
+- As part of the testing process, using the url endpoint /followers/ I can view the list of all followers.
+![](assets/followers%20list.png)
+
+- As part of the testing process, I can view the followig count increase and decrease when selecting to follow or unfollow a profile.
+![](assets/following%20count.png)
+
+- As part of the testing process, I can view my own followers count increase or decrease if a user follows or unfollows my profile.
+![](assets/following%20counting.png)
+
+- As part of the testing process, I can not follow a user I already follow as I am returned a status HTTP 400 Bad Request and the error message "you already follow this profile".
+
+- As part of the testing process, I can not retrieve the list of followers if not logged in.
+
+- As part of the testing process, I can not follow or unfollow a user if not logged in.
 
 ---
 
