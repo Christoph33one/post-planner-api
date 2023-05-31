@@ -67,6 +67,7 @@ To ensure online safety, users cannot access and edit or delete another individu
 To further enhance the user experience with a travel post, an update and delete function has been implemented that lets the users effortlessly update a post or to delete a post when needed.
 
 ---
+
 # Comments
 With the Comments model, authenticated users can conveniently leave feedback on fellow users' travel plans. This model leverages a one-to-many relationship, connecting comments to the relevant travel plan through a foreign key. It also provides users with a content field to enter their comments, an image field for a user to add an image to a comment, as well as created-at and updated-at timestamps. To ensure online safety, I have included an "approved" boolean field, allowing the site administrator to review and approve comments that adhere to the site's guidelines. 
 
@@ -78,12 +79,12 @@ For the followers model, authenticated users can follow or unfollow profiles. Th
 The owner field, This field defines a foreign key field named owner that references the User model and also a related_name of "following" as it value, for this you can access the instances of this model.
 The on_delete parameter specifies what should happen when the referenced User object is deleted. In this case, models.CASCADE is specified, which means that when a User object is deleted, all related instances of this model will also be deleted.
 
-
 Followed, this line defines another foreign key field named followed, also referencing the User model.
 The related_name parameter sets the reverse relation name as 'followed'. So from a User object, you can access instances of this model through the attribute followed.
 
-created_at, this line defines a DateTimeField named created_at, which represents a date and time value.
+Created_at, this line defines a DateTimeField named created_at, which represents a date and time value.
 The auto_now_add parameter is set to True, which means that whenever an instance of this model is created, the created_at field will automatically be set to the current date and time.
+
 ---
 
 # Search filter 
@@ -302,6 +303,7 @@ When deleting a comment the api returns a status HTTP_204_NO_CONTENT and the com
 ![](assets/following%20counting.png)
 
 - As part of the testing process, I can not follow a user I already follow as I am returned a status HTTP 400 Bad Request and the error message "you already follow this profile".
+![](assets/following%20error%20message.png)
 
 - As part of the testing process, I can not retrieve the list of followers if not logged in.
 
@@ -325,15 +327,6 @@ I then added a location that does not exist, the results are that this location 
 
 - To test a user can register, I had to create a new super user and access the admin panel. I do not have a backend function for a user to register. This is to be implemented in the front-end. 
 ![](assets/new%20profile%20in%20admn%20panel.png)
-
-
-
-
-
-
-
-
-
 
 ---
 
