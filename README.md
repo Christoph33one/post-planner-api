@@ -149,6 +149,10 @@ In order to enhance the user experience and assist with location-based travel pl
 
 # Testing
 
+### Python Linter
+
+All Python code in this project has undergone thorough testing using the provided [Python Linter](https://pep8ci.herokuapp.com/) by Code Institute.
+
 ### Automated tests
 I have used Django's API Test Case to perform all automated tests. I have thoroughly tested all three models to ensure that all user and API functions are working as expected. Additionally, I have verified that each URL endpoint corresponds to the correct function.
 
@@ -327,12 +331,6 @@ I then added a location that does not exist, the results are that this location 
 
 - To test a user can register, I had to create a new super user and access the admin panel. I do not have a backend function for a user to register. This is to be implemented in the front-end. 
 ![](assets/new%20profile%20in%20admn%20panel.png)
-
----
-
-### Python Linter
-
-All Python code in this project has undergone thorough testing using the provided [Python Linter](https://pep8ci.herokuapp.com/) by Code Institute.
 
 --- 
 
