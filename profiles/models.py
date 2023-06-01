@@ -23,7 +23,7 @@ class Profile(models.Model):
         ('EXPLORING', 'Exploring'),
         ('PHOTOGRAPHY', 'Photography'),
     )
-    activities = models.CharField(max_length=20, choices=ACTIVITY_CHOICES, blank=True)
+    activities = models.CharField(max_length=20, choices=ACTIVITY_CHOICES, blank=True)  # noqa
     approved = models.BooleanField(default=False)
 
     class Meta:

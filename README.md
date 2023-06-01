@@ -319,7 +319,7 @@ I then added a location that does not exist, the results are that this location 
 ---
 
 ### authentication 
-- To tets a user can login I used the login form and entered the users correct credentials. This is gave my access to the users profile.
+- To test a user can login I used the login form and entered the users correct credentials. This is gave my access to the users profile.
 ![](assets/login.png)
 
 - To test log out, I used the log out button with the api. This logged me out as the user and returned me to the url I was currently on but restricting me to access the profile, add travel plans or add comments
@@ -329,6 +329,12 @@ I then added a location that does not exist, the results are that this location 
 ![](assets/new%20profile%20in%20admn%20panel.png)
 
 ---
+
+### Python Linter
+
+All Python code in this project has undergone thorough testing using the provided [Python Linter](https://pep8ci.herokuapp.com/) by Code Institute.
+
+--- 
 
 # Deployment
 Deployment
